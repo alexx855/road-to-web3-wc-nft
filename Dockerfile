@@ -5,6 +5,10 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 RUN apt-get update --fix-missing && \
     apt-get install -y --no-install-recommends 
 
+# Soap
+RUN apt-get install -y libxml2-dev &&\
+    docker-php-ext-install soap
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
