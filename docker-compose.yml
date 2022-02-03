@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  wordpress:
+    build: ./
+    container_name: hackaton-wc-nft
+    depends_on:
+      - mysql
+    environment:
+      - WORDPRESS_AUTH_KEY=${AUTH_KEY}
+      - WORDPRESS_SECURE_AUTH_KEY=${SECURE_AUTH_KEY}
+      - WORDPRESS_LOGGED_IN_KEY=${LOGGED_IN_KEY}
+      - WORDPRESS_NONCE_KEY=${NONCE_KEY}
+      - WORDPRESS_AUTH_SALT=${AUTH_SALT}
+      - WORDPRESS_SECURE_AUTH_SALT=${SECURE_AUTH_SALT}
+      - WORDPRESS_LOGGED_IN_SALT=${LOGGED_IN_SALT}
+      - WORDPRESS_NONCE_SALT=${NONCE_SALT}
+      - |
+        WORDPRESS_CONFIG_EXTRA=
+          define('WP_HOME', 'http://localhost');
+          define('WP_SITEURL', 'http://localhost');
+          define('ALLOW_UNFILTERED_UPLOADS', false);
+          define('AUTOMATIC_UPDATER_DISABLED', true);
+          define('FORCE_SSL_ADMIN', false);
+          define('FS_METHOD', 'direct');
+          define( 'WP_DEBUG_LOG', true );
+          define( 'WP_DEBUG_DISPLAY', true );
+      - WORDPRESS_DEBUG=true
+      - WORDPRESS_DB_NAME=${DATABASE_NAME:-database}
+      - WORDPRESS_TABLE_PREFIX=${WORDPRESS_TABLE_PREFIX:-wp_}
+      - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST:-mysql}
+      - WORDPRESS_DB_USER=${DATABASE_USER:-root}
+      - WORDPRESS_DB_PASSWORD=${DATABASE_PASSWORD:-password}
+    volumes:
+      - ${WORDPRESS_DATA_DIR:-./wordpress}:/var/www/html
+    ports:
+      - "80:80"
+    restart: always
+  mysql:
+    image: mariadb:${MARIADB_VERSION:-latest}
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD:-password}
+      - MYSQL_USER=${DATABASE_USER:-root}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD:-password}
+      - MYSQL_DATABASE=${DATABASE_NAME:-database}
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
