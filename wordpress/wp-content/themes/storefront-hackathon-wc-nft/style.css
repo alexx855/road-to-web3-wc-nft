@@ -4,18 +4,68 @@ Author:         @alexx855
 Author URI:     https://alexpedersen.dev/
 Template:     	storefront
 Description:  	This is child theme for WooThemes StoreFront theme with some customizations.
-Version:      	1.0.0
+Version:      	1.0.1
 License:      	No licence
 Text Domain:  	storefront
 */
 
 body.woocommerce #primary,
 body.woocommerce-checkout #primary {
-	width: 100%;
+  width: 100%;
 }
 
-.site-content .content-area{
-    float: none;
-    margin-left: 0;
-    margin-top: 2.617924em;
+.single-product .site-content .site-main .product {
+  float: none;
+  margin-left: 0;
+}
+
+.woocommerce-active .site-header .site-branding {
+  width: 100%;
+  float: none;
+  text-align: center;
+  margin-right: 0;
+}
+
+.site-header {
+  border-bottom: 0px solid #e5e5e5;
+}
+
+/* .site-header .col-full {
+  position: relative;
+} */
+
+.site-info {
+  text-align: center;
+}
+
+.woocommerce-tabs ul.tabs {
+  display: none;
+}
+
+.woocommerce-tabs .panel {
+  width: 100%;
+  float: none;
+}
+
+.site-content .content-area {
+  width: 100%;
+  margin-right: 0px;
+  float: none;
+  overflow: hidden;
+}
+
+.home.blog .site-header,
+.home.page:not(.page-template-template-homepage) .site-header {
+  margin-bottom: 0;
+}
+
+#order_review_heading,
+#order_review {
+  width: 100%;
+  float: none;
+  margin-right: 0;
+}
+
+.home .woocommerce-error {
+  margin-top: 0 !important;
 }

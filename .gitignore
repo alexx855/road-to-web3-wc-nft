@@ -1,2 +1,9 @@
 .env
 mysql
+
+wordpress/wp-content/plugins/ethpress
+# wordpress/wp-content/plugins/woocommerce
+wordpress/wp-content/plugins/woocommerce-gateway-stripe
+*.Identifier
+
+wordpress/wp-content/themes/twenty*

@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://hackathon-wc-nft.alexpedersen.dev
  * @since      1.0.0
  *
  * @package    Hackathon_Wc_Nft
@@ -20,7 +20,8 @@
  * @subpackage Hackathon_Wc_Nft/public
  * @author     Your Name <email@example.com>
  */
-class Hackathon_Wc_Nft_Public {
+class Hackathon_Wc_Nft_Public
+{
 
 	/**
 	 * The ID of this plugin.
@@ -47,11 +48,16 @@ class Hackathon_Wc_Nft_Public {
 	 * @param      string    $hackathon_wc_nft       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $hackathon_wc_nft, $version ) {
+	public function __construct($hackathon_wc_nft, $version)
+	{
 
 		$this->hackathon_wc_nft = $hackathon_wc_nft;
 		$this->version = $version;
-
+	}
+	
+	public function modal_template()
+	{
+		include plugin_dir_path(__FILE__) . 'partials/hackathon-wc-nft-public-display.php';
 	}
 
 	/**
@@ -59,7 +65,8 @@ class Hackathon_Wc_Nft_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -73,8 +80,7 @@ class Hackathon_Wc_Nft_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->hackathon_wc_nft, plugin_dir_url( __FILE__ ) . 'css/hackathon-wc-nft-public.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->hackathon_wc_nft, plugin_dir_url(__FILE__) . 'css/hackathon-wc-nft-public.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -82,7 +88,8 @@ class Hackathon_Wc_Nft_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -96,8 +103,6 @@ class Hackathon_Wc_Nft_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->hackathon_wc_nft, plugin_dir_url( __FILE__ ) . 'js/hackathon-wc-nft-public.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->hackathon_wc_nft, plugin_dir_url(__FILE__) . 'js/hackathon-wc-nft-public.js', array('jquery'), $this->version, false);
 	}
-
 }

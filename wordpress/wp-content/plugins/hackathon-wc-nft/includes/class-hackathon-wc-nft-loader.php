@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       http://example.com
+ * @link       https://hackathon-wc-nft.alexpedersen.dev
  * @since      1.0.0
  *
  * @package    Hackathon_Wc_Nft

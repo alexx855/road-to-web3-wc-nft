@@ -19,7 +19,7 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       http://example.com
+ * @link       https://hackathon-wc-nft.alexpedersen.dev
  * @since      1.0.0
  *
  * @package    Hackathon_Wc_Nft
