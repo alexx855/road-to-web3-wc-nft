@@ -25,6 +25,7 @@ function sf_child_theme_dequeue_style()
  */
 
 add_filter('woocommerce_checkout_fields', '__return_null');
+add_filter('storefront_credit_links_output', '__return_null');
 
 // force redirect to checkout when cart is not empty
 add_filter('login_redirect', function ($redirect_to, $request, $user) {
