@@ -1,5 +1,8 @@
-![cover](https://raw.githubusercontent.com/alexx855/hackathon-wc-nft/main/cover.png)
 ## Project description
+![cover](https://raw.githubusercontent.com/alexx855/hackathon-wc-nft/main/cover.png)
+
+## Demo video
+[![video](https://img.youtube.com/vi/Hv3RBwHluJM/0.jpg)](https://www.youtube.com/watch?v=Hv3RBwHluJM)
 
 This project was made on a weekend for the EHTGlobal road to web3 hackathon, its basically a plugin to sell and mint NFTs from WooCommerce Products, it remplaces the default WC downloads panel from where you can see and transfer your current NFTs
 I have created a custom plugin for WordPress which allows anyone to buy and mint NFTs directly from a WordPress install and pay for it using any supported gateway in WooCommerce .
@@ -34,3 +37,31 @@ build and run the demo:
 ```docker compose up --build```
 or 
 ```docker-compose up```
+
+
+### Generate video speech from text
+
+```
+curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+  -H "Content-Type: application/json; charset=utf-8" --data "{
+    'input':{
+     'ssml':'<speak> <emphasis level=\'strong\'>Welcome</emphasis> to my road to web 3 project.<break time=\'400ms\'/> Lets start with this demo video by installing the wordpress plugin.<break time=\'400ms\'/> Now we can set up the required API keys for the plugin to work, there are links to the websites to get your own keys.<break time=\'400ms\'/> You can create or edit any existing product from the Wordpress dashboard.<break time=\'400ms\'/> Make sure to set the product to be a downloable product, this plugins mints the downloadble products file as NFTs using the NFTport API.<break time=\'400ms\'/> All the NFTs metadata is stored as item metadata inside the order, so you can see the metadata in the order history and the link to the polygon scan transaction.<break time=\'400ms\'/> Now lets have a look how the final product looks like to the end user.<break time=\'400ms\'/> We are purchasing a product with our stripe test credit card.<break time=\'400ms\'/> There it is! our link to the polygon scan transaction.<break time=\'400ms\'/> You can now see the NFTs on you account tab, and transfer them to anyone else.<break time=\'400ms\'/> <emphasis level=\'strong\'>Thanks</emphasis> for watching. </speak>'
+    },
+    'voice':{
+      'languageCode':'en-us',
+      'name':'en-US-Standard-B',
+      'ssmlGender':'FEMALE'
+    },
+    'audioConfig':{
+      'audioEncoding':'MP3'
+    }
+  }" "https://texttospeech.googleapis.com/v1/text:synthesize" > synthesize-ssml.txt
+```
+Make mp3 file
+
+```
+cat synthesize-ssml.txt | grep 'audioContent' | \
+sed 's|audioContent| |' | tr -d '\n ":{},' > tmp.txt && \
+base64 tmp.txt --decode > synthesize-ssml-audio.mp3 && \
+rm tmp.txt
+```
