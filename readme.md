@@ -1,8 +1,6 @@
 ## Project description
 ![cover](https://raw.githubusercontent.com/alexx855/hackathon-wc-nft/main/cover.png)
 
-## Demo video
-[![video](https://img.youtube.com/vi/Hv3RBwHluJM/0.jpg)](https://www.youtube.com/watch?v=Hv3RBwHluJM)
 
 This project was made on a weekend for the EHTGlobal road to web3 hackathon, its basically a plugin to sell and mint NFTs from WooCommerce Products, it remplaces the default WC downloads panel from where you can see and transfer your current NFTs
 I have created a custom plugin for WordPress which allows anyone to buy and mint NFTs directly from a WordPress install and pay for it using any supported gateway in WooCommerce .
@@ -38,6 +36,8 @@ build and run the demo:
 or 
 ```docker-compose up```
 
+## Demo video
+[![video](https://img.youtube.com/vi/Hv3RBwHluJM/0.jpg)](https://www.youtube.com/watch?v=Hv3RBwHluJM)
 
 ### Generate video speech from text
 
